@@ -19,9 +19,14 @@ function loadGoods(){
             out+='<div class="thumbnail tmbCenter">';
             out+='<img class = "cardImg" src="'+data[key].image+'">';
             out+='<div class = "caption">';
-            out+='<h3 class = "cardName">'+data[key]['name']+'</h3>';
-            out+='<p>'+data[key]['price']+ ' ' +data[key]['value']+'</p>';
-            out+='<p><a  class="btn btn-primary add-to-cart" role="button" data-art="'+key+'">Купить</a></p>';
+
+            out+='<div class= "name"><strong>Профессиональное массажное масло<br> «';
+            out+='<strong data-redactor-tag="strong" class ="strong-name">'+data[key]['nameB']+'</strong>';
+            out+= '» '+data[key]['size']+' ml.</strong></div>';
+
+            out+='<p class ="pricing">'+data[key]['price']+ ' ' +data[key]['value']+'</p>';
+            out+='<p><a  class="btn btn-default btn-md about-btn" role="button" data-toggle="modal" data-target="#largeModal" data-art="'+key+'">Подробнее</a></p>';
+            out+='<p><a  class="btn btn-primary add-to-cart " role="button" data-art="'+key+'">Заказать с бесплатной доставкой</a></p>';
             out+='</div>';
             out+='</div>';
             out+='</div>';
@@ -29,6 +34,9 @@ function loadGoods(){
         
         $('.line').html(out);
         $('a.add-to-cart').on('click', addToCart);
+
+        $('a.about-btn').on('click', aboutCartOpen);
+        console.log($('a.about-btn'));
     });
 
 }
@@ -78,7 +86,6 @@ function showMiniCart(){
             $('.cart span').addClass( "cart-ball-empty");
         }
 
-// $('.mini-cart').html(out);
 }
 
 window.addEventListener('storage', test, false);
@@ -87,3 +94,58 @@ function test(){
     showMiniCart()
     } 
 
+    function aboutCartOpen() {
+        //открывает доп сведения о товаре
+        let art = $(this).attr('data-art')
+         console.log(art);
+
+        //  $("html").addClass("modal-open")
+
+
+
+        $.getJSON("goods.json", function (data){
+            let out2 = '';
+            let out3 = '';
+
+            out2+='<div class="thumbnail tmbCenter">';
+            out2+='<img class = "aboutImg" src="'+data[art].image+'">';
+            out2+='<div class = "caption">';
+            out2+='</div>';
+            out2+='</div>';
+            out2+='</div>';
+
+
+            out3+='<div class= "name"><strong> «';
+            out3+='<strong data-redactor-tag="strong" class ="strong-name">'+data[art]['nameB']+'</strong>';
+            out3+= '» '+data[art]['size']+' ml.</strong></div>';
+
+            out3+='<p class ="pricing">'+data[art]['price']+ ' ' +data[art]['value']+'</p>';
+            out3+='<p><a  class="btn btn-primary add-to-cart " role="button" data-art="'+art+'">Заказать с бесплатной доставкой</a></p>';
+            
+            out3+='<div class= "Smole-name"><strong> «';
+            out3+='<strong data-redactor-tag="strong" class ="strong-name2">'+data[art]['name']+'</strong>';
+            out3+= '» '+data[art]['size']+' ml.</strong></div>';
+
+
+
+            out3+= '<div class = "deck-wrap"><p>'+data[art]['description']+'</p></div>';
+
+        $('.img-part').html(out2);
+        $('.desc-part').html(out3);
+
+        }); 
+
+
+
+        // if ($("html").hasClass("modal-open") && !$(".modal").hasClass("show")) {
+        //     console.log('нет');
+        //     $("html").removeClass("modal-open")
+        // }
+        // else {
+        //     console.log('да');
+        //     $("html").addClass("modal-open")
+            
+            
+        // }
+
+    }
