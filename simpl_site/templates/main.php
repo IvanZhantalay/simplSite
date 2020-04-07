@@ -54,23 +54,23 @@
           <form id="formOpt" name="formOpt" role="form" action="" method="POST">
             <div class="form-group">
     
-              <input type="text" class="form-control form-opt" id="name" aria-describedby="name" value="" placeholder="Ваше имя">
+              <input type="text" class="form-control form-opt" disabled id="name" aria-describedby="name" value="" placeholder="Ваше имя">
 
             </div>
             <div class="form-group">
    
-              <input type="email" class="form-control form-opt" id="email" aria-describedby="email" value="" placeholder="Ваш email">
+              <input type="email" class="form-control form-opt" disabled id="email" aria-describedby="email" value="" placeholder="Ваш email">
     
             </div>
             <div class="form-group">
     
-              <input type="tel" class="form-control form-opt" id="tel" placeholder="+380(99) 999-99-99">
+              <input type="tel" class="form-control form-opt" disabled id="tel" placeholder="+380(99) 999-99-99">
             </div>
             <!-- <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Даю свое разрешение на обработку персональных данных</label>
             </div> -->
-  <button type="submit" class="btn btn-primary add-to-cart opt-btn">Отправить</button>
+  <button type="submit" class="btn btn-primary add-to-cart opt-btn" disabled>Отправить</button>
 </form>
 
          

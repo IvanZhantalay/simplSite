@@ -25,7 +25,7 @@ function loadGoods(){
             out+= '» '+data[key]['size']+' ml.</strong></div>';
 
             out+='<p class ="pricing">'+data[key]['price']+ ' ' +data[key]['value']+'</p>';
-            out+='<p><a  class="btn btn-default btn-md about-btn" role="button" data-toggle="modal" data-target="#largeModal" data-art="'+key+'">Подробнее</a></p>';
+            // out+='<p><a  class="btn btn-default btn-md about-btn" role="button" data-toggle="modal" data-target="#largeModal" data-art="'+key+'">Подробнее</a></p>';
             out+='<p><a  class="btn btn-primary add-to-cart " role="button" data-art="'+key+'">Заказать с бесплатной доставкой</a></p>';
             out+='</div>';
             out+='</div>';
@@ -35,8 +35,8 @@ function loadGoods(){
         $('.line').html(out);
         $('a.add-to-cart').on('click', addToCart);
 
-        $('a.about-btn').on('click', aboutCartOpen);
-        console.log($('a.about-btn'));
+        // $('a.about-btn').on('click', aboutCartOpen);
+        // console.log($('a.about-btn'));
     });
 
 }

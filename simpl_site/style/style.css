@@ -388,8 +388,16 @@ text-align: center;
 
 .opt-btn:hover{
     color: #fff;
-    background: #E31837!important;
+    /* background: #E31837!important; */
+    background: gray!important;
 }
+
+.opt-btn:disabled{
+    color: #fff;
+    /* background: #E31837!important; */
+    background: gray!important;
+}
+
 
 
 #toTop {

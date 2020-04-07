@@ -13,7 +13,6 @@ switch ($route){
         require 'templates/cart.php';
         // require 'templates/footer_cart.php';
         break;
-
 }
 
 require 'templates/footer.php';
